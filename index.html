@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Вода без хлопот</title>
+<meta name="description" content="Биологическая станция BIOROCK очищает стоки на 95–99% — без запаха и электричества. Узнайте, подойдёт ли она вашему участку.">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Biorock Moldova">
+<meta property="og:title" content="Надоело вызывать ассенизатора каждый месяц?">
+<meta property="og:description" content="Биологическая станция BIOROCK очищает стоки на 95–99% — без запаха и электричества.">
+<meta property="og:image" content="og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Надоело вызывать ассенизатора каждый месяц?">
+<meta name="twitter:description" content="Биологическая станция BIOROCK очищает стоки на 95–99% — без запаха и электричества.">
+<meta name="twitter:image" content="og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #f2f5ef;
+    --surface: #ffffff;
+    --surface-soft: #e7ede3;
+    --ink: #16242c;
+    --ink-soft: #57676d;
+    --navy: #0e3350;
+    --navy-deep: #0a2540;
+    --green: #86c440;
+    --green-dark: #5c9c2e;
+    --green-soft: #e6f1da;
+    --line: rgba(14,51,80,0.14);
+    --shadow: 0 20px 50px -30px rgba(14,51,80,0.35);
+    --bad: #c9614d;
+    --panel-bg: var(--navy);
+    --panel-fg: #f5f7f4;
+    --panel-fg-soft: rgba(245,247,244,0.72);
+    --panel-fg-mute: rgba(245,247,244,0.6);
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg: #0c1a1c;
+      --surface: #132927;
+      --surface-soft: #17322f;
+      --ink: #edf2ee;
+      --ink-soft: #a4b8b0;
+      --navy: #7fa8c9;
+      --green: #7bcf55;
+      --green-dark: #8fd35f;
+      --green-soft: rgba(123,207,85,0.16);
+      --line: rgba(237,242,238,0.14);
+      --shadow: 0 20px 60px -30px rgba(0,0,0,0.6);
+      --bad: #d97f6d;
+      --panel-bg: var(--surface);
+      --panel-fg: var(--ink);
+      --panel-fg-soft: var(--ink-soft);
+      --panel-fg-mute: var(--ink-soft);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: #0c1a1c;
+    --surface: #132927;
+    --surface-soft: #17322f;
+    --ink: #edf2ee;
+    --ink-soft: #a4b8b0;
+    --navy: #7fa8c9;
+    --green: #7bcf55;
+    --green-dark: #8fd35f;
+    --green-soft: rgba(123,207,85,0.16);
+    --line: rgba(237,242,238,0.14);
+    --shadow: 0 20px 60px -30px rgba(0,0,0,0.6);
+    --bad: #d97f6d;
+    --panel-bg: var(--surface);
+    --panel-fg: var(--ink);
+    --panel-fg-soft: var(--ink-soft);
+    --panel-fg-mute: var(--ink-soft);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ color-scheme: light dark; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Mulish', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection{ background: var(--green-soft); color: var(--navy); }
+
+  h1, h2, h3{
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    font-weight: 800;
+    text-wrap: balance;
+    margin: 0;
+    color: var(--navy);
+  }
+
+  a{ color: inherit; }
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--green-dark);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 40px);
+  }
+
+  .eyebrow{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    font-weight: 700;
+  }
+
+  /* ---------- WORDMARK ---------- */
+  .wordmark{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+    margin-bottom: 28px;
+  }
+  .wordmark span{ color: var(--green-dark); }
+  .wordmark svg{ flex-shrink: 0; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    padding: clamp(56px, 10vw, 96px) 0 clamp(40px, 6vw, 64px);
+    overflow: hidden;
+  }
+  .hero__ripples{
+    position: absolute;
+    top: -14%;
+    right: 10%;
+    width: min(46vw, 1460px);
+    height: min(46vw, 1460px);
+    opacity: 0.9;
+    pointer-events: none;
+  }
+  .hero__inner{
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 22px;
+    max-width: 620px;
+  }
+  .hero h1{
+    font-size: clamp(2.1rem, 4.6vw, 3.3rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .hero h1 em{
+    font-style: normal;
+    color: var(--navy);
+    background: linear-gradient(to bottom, transparent 62%, var(--green-soft) 62%);
+  }
+  .hero p.lede{
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    color: var(--ink-soft);
+    max-width: 46ch;
+  }
+  .hero__panels{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 6px;
+    align-items: center;
+  }
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--green-dark);
+    color: #f7fbf8;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    padding: 14px 24px;
+    border-radius: 3px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: var(--shadow);
+  }
+  .btn:hover{ transform: translateY(-1px); }
+  .btn--ghost{
+    background: transparent;
+    color: var(--navy);
+    border-color: var(--line);
+    box-shadow: none;
+    font-weight: 600;
+  }
+
+  /* ---------- TRUST BADGES ---------- */
+  .trustbar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px 16px;
+    margin: clamp(8px, 3vw, 20px) 0 clamp(48px, 8vw, 76px);
+    padding: clamp(20px, 4vw, 28px) 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .trust{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    width: 108px;
+  }
+  .trust__ring{
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--navy);
+    box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .trust__ring svg{ width: 24px; height: 24px; color: #fff; }
+  .trust span{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--navy);
+    line-height: 1.25;
+  }
+
+  /* ---------- STRATA DIVIDER (signature device) ---------- */
+  .strata{
+    margin: 0 0 clamp(48px, 8vw, 76px);
+  }
+  .strata__band{
+    height: 14px;
+    border-radius: 2px;
+    background: linear-gradient(90deg,
+      #6b4a2f 0%, #6b4a2f 12%,
+      #9c8a67 12%, #9c8a67 34%,
+      var(--green-dark) 34%, var(--green-dark) 58%,
+      var(--green) 58%, var(--green) 84%,
+      var(--surface) 84%, var(--surface) 100%
+    );
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+  .strata__labels{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{ padding: clamp(8px, 2vw, 16px) 0 clamp(56px, 9vw, 88px); }
+  .section-head{
+    max-width: 56ch;
+    margin-bottom: clamp(28px, 5vw, 40px);
+  }
+  .section-head h2{
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-top: 8px;
+  }
+
+  /* pain grid */
+  .pain-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .pain-card{
+    background: var(--surface);
+    padding: 26px 24px;
+    display: grid;
+    gap: 12px;
+    align-content: start;
+  }
+  .pain-card svg{ width: 28px; height: 28px; color: var(--navy); }
+  .pain-card h3{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.02rem;
+  }
+  .pain-card p{
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  /* how it works */
+  .steps{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .step{ display: grid; gap: 10px; }
+  .step__num{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.8rem;
+    font-weight: 800;
+  }
+  .step h3{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.02rem;
+  }
+  .step p{ margin: 0; color: var(--ink-soft); font-size: 0.94rem; }
+  .step__bar{
+    height: 4px;
+    border-radius: 2px;
+    background: var(--surface-soft);
+    overflow: hidden;
+  }
+  .step__bar i{ display:block; height:100%; background: var(--green-dark); }
+
+  /* proof */
+  .proof{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: clamp(24px, 4vw, 36px);
+    display: grid;
+    gap: clamp(28px, 4vw, 36px);
+  }
+  .compare{ display: grid; gap: 14px; }
+  .compare__row{ display: grid; grid-template-columns: 140px 1fr 64px; align-items: center; gap: 14px; }
+  .compare__label{ font-size: 0.92rem; color: var(--ink-soft); font-weight: 600; }
+  .compare__track{
+    height: 22px;
+    background: var(--surface-soft);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .compare__fill{ height: 100%; border-radius: 3px 0 0 3px; }
+  .compare__fill--bad{ background: var(--bad); opacity: 0.75; }
+  .compare__fill--good{ background: var(--green-dark); }
+  .compare__value{
+    font-family: 'Montserrat', sans-serif;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: var(--navy);
+    text-align: right;
+  }
+  .proof__foot{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px 28px;
+    padding-top: clamp(20px, 3vw, 28px);
+    border-top: 1px solid var(--line);
+  }
+  .stat{ display: flex; align-items: center; gap: 10px; }
+  .stat__ring{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1.5px solid var(--green-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .stat__ring b{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--green-dark);
+    line-height: 1;
+  }
+  .stat__ring em{ font-style: normal; font-size: 0.44rem; color: var(--green-dark); text-transform: uppercase; }
+  .stat span{ font-size: 0.8rem; color: var(--ink-soft); line-height: 1.25; }
+  .badges{ display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; align-self: center; }
+  .badge{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 2px;
+    background: transparent;
+    border: 1px solid var(--navy);
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  /* fit / reassurance */
+  .fit{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 22px;
+    align-items: start;
+    background: var(--green-soft);
+    border-radius: 4px;
+    padding: clamp(22px, 4vw, 30px);
+  }
+  .fit svg{ width: 32px; height: 32px; color: var(--green-dark); flex-shrink: 0; }
+  .fit h3{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.06rem;
+    margin-bottom: 6px;
+  }
+  .fit p{ margin: 0; color: var(--ink-soft); }
+
+  /* PDF download — deliberately loud and unmistakable */
+  .pdf-card{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 18px;
+    padding: 16px 18px;
+    background: var(--surface);
+    border: 1.5px solid var(--navy);
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 10px 26px -18px rgba(14,51,80,0.5);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+  .pdf-card:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px -16px rgba(14,51,80,0.55);
+    background: var(--green-soft);
+  }
+  .pdf-card__icon{
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 8px;
+    background: #d64541;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
+  }
+  .pdf-card__body{ flex: 1; min-width: 0; }
+  .pdf-card__title{
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: var(--navy);
+  }
+  .pdf-card__meta{
+    display: block;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+  .pdf-card__cta{
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #fff;
+    background: var(--green-dark);
+    padding: 10px 16px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .pdf-card__cta svg{ width: 16px; height: 16px; }
+  @media (max-width: 480px){
+    .pdf-card{ flex-wrap: wrap; padding: 14px 16px; }
+    .pdf-card__body{ flex: 1 1 calc(100% - 62px); }
+    .pdf-card__cta{ flex: 1 1 100%; justify-content: center; margin-top: 2px; }
+  }
+
+  /* ---------- sticky mini-CTA ---------- */
+  .phone-bar{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+    box-shadow: 0 -12px 30px -20px rgba(14,51,80,0.4);
+    padding: 12px clamp(20px, 5vw, 40px);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+  .phone-bar.is-visible{ transform: translateY(0); }
+  .phone-bar__inner{
+    max-width: 880px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .phone-bar__text{
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+  }
+  .phone-bar .btn{ padding: 10px 20px; font-size: 0.88rem; box-shadow: none; }
+  @media (prefers-reduced-motion: reduce){
+    .phone-bar{ transition: none; }
+  }
+
+  /* footer panel */
+  .panel{
+    background: var(--panel-bg, var(--navy));
+    color: var(--bg);
+    padding: clamp(52px, 9vw, 84px) 0;
+  }
+  .panel h2{ color: var(--panel-fg); font-size: clamp(1.6rem, 3.4vw, 2.2rem); max-width: 20ch; }
+  .panel p.lede{ color: var(--panel-fg-soft); max-width: 48ch; margin-top: 12px; }
+  .panel__grid{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 28px;
+    align-items: end;
+    margin-top: clamp(28px, 5vw, 40px);
+  }
+  .panel__contacts{ display: grid; gap: 8px; font-size: 0.98rem; }
+  .panel__contacts a{ text-decoration: none; color: var(--panel-fg); }
+  .panel__contacts .phone{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+  }
+  .panel__contacts .muted{ color: var(--panel-fg-mute); font-size: 0.86rem; }
+  footer.brandline{
+    padding: 20px 0 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--panel-fg-mute);
+    display: flex;
+    justify-content: space-between;
+    background: var(--panel-bg);
+  }
+  footer.brandline .wrap{ display:flex; justify-content: space-between; width: 100%; }
+  footer.brandline span:first-child{ color: var(--panel-fg-mute); }
+  footer.brandline span:last-child{ color: var(--panel-fg-soft); }
+
+  @media (max-width: 720px){
+    .hero__ripples {
+      top: 0%;
+      right: 0%;    
+      width: min(70vw, 1460px);
+      height: min(70vw, 1460px);}
+    .pain-grid{ grid-template-columns: 1fr; }
+    .steps{ grid-template-columns: 1fr; }
+    .proof__foot{ flex-direction: column; align-items: flex-start; }
+    .badges{ margin-left: 0; }
+    .fit{ grid-template-columns: 1fr; }
+    .panel__grid{ grid-template-columns: 1fr; }
+    .compare__row{ grid-template-columns: 96px 1fr 54px; }
+    footer.brandline .wrap{ flex-direction: column; gap: 6px; }
+    .trustbar{ justify-content: center; }
+    .strata__labels{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 12px;
+    }
+    .strata__labels span:nth-child(2){ text-align: right; }
+    .strata__labels span:nth-child(4){ text-align: right; }
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .hero__inner > *{
+      animation: rise 0.7s ease both;
+    }
+    .hero__inner > *:nth-child(2){ animation-delay: 0.06s; }
+    .hero__inner > *:nth-child(3){ animation-delay: 0.12s; }
+    @keyframes rise{
+      from{ opacity: 0; transform: translateY(10px); }
+      to{ opacity: 1; transform: translateY(0); }
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <svg class="hero__ripples" viewBox="0 0 200 200" aria-hidden="true">
+    <circle cx="120" cy="80" r="55" fill="none" stroke="var(--navy)" stroke-width="16" opacity="0.08"/>
+    <circle cx="90" cy="110" r="40" fill="none" stroke="var(--green)" stroke-width="12" opacity="0.18"  transform="rotate(190 90 110)"/>
+  </svg>
+  <div class="wrap">
+    <div class="hero__inner">
+      <div class="wordmark">
+        <svg width="26" height="26" viewBox="0 0 30 30" aria-hidden="true">
+          <circle cx="12" cy="15" r="9.5" fill="none" stroke="#0e3350" stroke-width="3"/>
+          <circle cx="18" cy="15" r="9.5" fill="none" stroke="#86c440" stroke-width="3"/>
+        </svg>
+        BIOROCK <span>MOLDOVA</span>
+      </div>
+      <p class="eyebrow">Очистка сточных вод для частного дома</p>
+      <h1>Чистая вода — без запаха, без электричества и без <em>ежемесячных звонков</em> ассенизатору</h1>
+      <p class="lede">Биологическая система BIOROCK очищает бытовые стоки до 95–99%. Работает без насосов и подключения к сети, справляется с глиной и высокими грунтовыми водами — там, где обычный септик уже не тянет.</p>
+      <div class="hero__panels">
+        <a class="btn" href="tel:+37361114780">Записаться на бесплатную консультацию</a>
+        <a class="btn btn--ghost" href="mailto:biorockmoldova@gmail.com">Написать на почту</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="trustbar">
+    <div class="trust">
+      <div class="trust__ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10l6-6 2 2-6 6z"/><path d="M14 10l-4 4"/><path d="M2 22l4-4"/><path d="M15 9l4-4"/><line x1="19" y1="3" x2="21" y2="5"/></svg></div>
+      <span>Без электричества</span>
+    </div>
+    <div class="trust">
+      <div class="trust__ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 20c1.5-2 1.5-4 0-6s-1.5-4 0-6"/><path d="M12 20c1.5-2 1.5-4 0-6s-1.5-4 0-6"/><path d="M18 20c1.5-2 1.5-4 0-6s-1.5-4 0-6"/><line x1="2" y1="21" x2="22" y2="3" stroke-width="1.4"/></svg></div>
+      <span>Без запаха</span>
+    </div>
+    <div class="trust">
+      <div class="trust__ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <span>Надёжно годами</span>
+    </div>
+    <div class="trust">
+      <div class="trust__ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 16a5 5 0 0 1 5-9 6 6 0 0 1 11 3"/><line x1="2" y1="21" x2="22" y2="3" stroke-width="1.4"/></svg></div>
+      <span>Бесшумно</span>
+    </div>
+    <div class="trust">
+      <div class="trust__ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 10l-3 3 3 3"/><path d="M17 4l3 3-3 3"/><path d="M4 13c0-4 2-6 6-6h7"/><path d="M20 11c0 4-2 6-6 6H7"/></svg></div>
+      <span>Экологично</span>
+    </div>
+  </div>
+
+  <div class="strata">
+    <div class="strata__band" role="img" aria-label="Схема пути воды: от стоков через минеральный фильтр до чистой воды"></div>
+    <div class="strata__labels">
+      <span>Сточные воды</span>
+      <span>Первичный отстойник</span>
+      <span>Минеральный биофильтр</span>
+      <span>Чистая вода</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="pain">
+    <div class="section-head">
+      <p class="eyebrow">Узнаёте свой участок?</p>
+      <h2>Обычный септик создаёт больше проблем, чем решает</h2>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 20c1.5-2 1.5-4 0-6s-1.5-4 0-6"/><path d="M12 20c1.5-2 1.5-4 0-6s-1.5-4 0-6"/><path d="M18 20c1.5-2 1.5-4 0-6s-1.5-4 0-6"/></svg>
+        <h3>Неприятный запах</h3>
+        <p>Обычный септик даёт только первичную очистку — снижает загрязнения на 30–50%. Запах — не поломка, а норма для такой технологии.</p>
+      </div>
+      <div class="pain-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="9" width="12" height="8" rx="1"/><path d="M14 12h4l4 3v2h-2"/><circle cx="7" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg>
+        <h3>Ассенизатор каждый месяц</h3>
+        <p>Плотный график откачки съедает бюджет и требует постоянно держать в голове ещё одну задачу.</p>
+      </div>
+      <div class="pain-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10l6-6 2 2-6 6z"/><path d="M14 10l-4 4"/><path d="M2 22l4-4"/><path d="M15 9l4-4"/><line x1="19" y1="3" x2="21" y2="5"/></svg>
+        <h3>На участке нет электричества</h3>
+        <p>Станции с насосами и компрессорами требуют постоянного питания — а значит, и постоянных счетов.</p>
+      </div>
+      <div class="pain-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 18c3-4 6 4 9 0s6 4 9 0"/><path d="M3 12c3-4 6 4 9 0s6 4 9 0"/></svg>
+        <h3>Глина или высокие грунтовые воды</h3>
+        <p>Септику с полем фильтрации нужна дренирующая почва. Если её нет — система просто не работает как задумано.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="section-head">
+      <p class="eyebrow">Как это устроено</p>
+      <h2>Три шага — без движущихся частей и электричества</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="step__num">01</span>
+        <h3>Отстаивание</h3>
+        <div class="step__bar"><i style="width:30%"></i></div>
+        <p>Стоки попадают в первичный резервуар: твёрдые частицы оседают на дно, жиры и масла — отделяются на поверхности.</p>
+      </div>
+      <div class="step">
+        <span class="step__num">02</span>
+        <h3>Биофильтрация</h3>
+        <div class="step__bar"><i style="width:65%"></i></div>
+        <p>Вода медленно проходит через слой природного минерального наполнителя, где живут бактерии, разлагающие загрязнения.</p>
+      </div>
+      <div class="step">
+        <span class="step__num">03</span>
+        <h3>Чистая вода</h3>
+        <div class="step__bar"><i style="width:97%"></i></div>
+        <p>На выходе — вода, очищенная на 95–99%. Её можно безопасно отвести в грунт или использовать для полива.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="proof">
+    <div class="section-head">
+      <p class="eyebrow">Не только слова</p>
+      <h2>Разница видна в цифрах</h2>
+    </div>
+    <div class="proof">
+      <div class="compare">
+        <div class="compare__row">
+          <span class="compare__label">Обычный септик</span>
+          <div class="compare__track"><div class="compare__fill compare__fill--bad" style="width:45%"></div></div>
+          <span class="compare__value">30–50%</span>
+        </div>
+        <div class="compare__row">
+          <span class="compare__label">Система BIOROCK</span>
+          <div class="compare__track"><div class="compare__fill compare__fill--good" style="width:97%"></div></div>
+          <span class="compare__value">95–99%</span>
+        </div>
+      </div>
+      <div class="proof__foot">
+        <div class="stat">
+          <div class="stat__ring"><b>25</b><em>лет</em></div>
+          <span>Гарантия на<br>резервуар</span>
+        </div>
+        <div class="stat">
+          <div class="stat__ring"><b>10</b><em>лет</em></div>
+          <span>Гарантия на<br>фильтр</span>
+        </div>
+        <div class="badges">
+          <span class="badge">ISO 9001</span>
+          <span class="badge">ISO 14001</span>
+          <span class="badge">CE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fit">
+    <div class="fit">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
+      <div>
+        <h3>Какая модель нужна именно вам?</h3>
+        <p>У BIOROCK есть решения от компактных станций для одного дома до модульных систем для посёлков. Мы бесплатно подберём подходящий вариант с учётом числа жильцов, типа почвы и уровня грунтовых вод — по телефону или на выезде.</p>
+        <a class="pdf-card" href="/_blob/4dd9ca27c4bf18b9a3142406bc7d6a20" target="_blank" rel="noopener">
+          <span class="pdf-card__icon">PDF</span>
+          <span class="pdf-card__body">
+            <span class="pdf-card__title">Полный каталог BIOROCK</span>
+            <span class="pdf-card__meta">Все модели, характеристики и сертификаты · открывается в новой вкладке</span>
+          </span>
+          <span class="pdf-card__cta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+            Скачать
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="panel">
+  <div class="wrap">
+    <p class="eyebrow">Готовы избавиться от запаха и откачек?</p>
+    <h2>Расскажите о своём участке — подберём решение за один звонок</h2>
+    <p class="lede">Бесплатная консультация ни к чему не обязывает: обсудим число жильцов, тип почвы и участок — и предложим точную модель.</p>
+    <div class="panel__grid">
+      <div class="panel__contacts">
+        <a class="phone" href="tel:+37361114780">+373 611 14 780</a>
+        <a class="phone" href="tel:+37361114754">+373 611 14 754</a>
+        <a href="mailto:biorockmoldova@gmail.com">biorockmoldova@gmail.com</a>
+        <span class="muted">ул. А. Пушкина, 24, оф. 32 · www.biorock.md</span>
+      </div>
+      <a class="btn" href="tel:+37361114780">Позвонить сейчас</a>
+    </div>
+  </div>
+</div>
+
+<footer class="brandline">
+  <div class="wrap">
+    <span>Biorock Moldova</span>
+    <span>Инновационные решения для очистки сточных вод</span>
+  </div>
+</footer>
+
+<div class="phone-bar" id="phoneBar">
+  <div class="phone-bar__inner">
+    <span class="phone-bar__text">Остались вопросы? Бесплатная консультация:</span>
+    <a class="btn" href="tel:+37361114780">+373 611 14 780</a>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var bar = document.getElementById('phoneBar');
+    var hero = document.querySelector('.hero');
+    if(!bar || !hero) return;
+    var threshold = hero.offsetHeight;
+    function onScroll(){
+      if(window.scrollY > threshold){ bar.classList.add('is-visible'); }
+      else{ bar.classList.remove('is-visible'); }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>
